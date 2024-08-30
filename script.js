@@ -51,7 +51,13 @@ function startSketch(){
     const cells=document.querySelectorAll("div:not(.container):not(.row)")
     cells.forEach((cell) => {
         cell.addEventListener("mouseover", () => {
-            cell.style["backgroundColor"]="black";
+            //cell.style["backgroundColor"]="black"; // standard;
+
+            //random
+            let r=parseInt(255*Math.random(),10);
+            let g=parseInt(255*Math.random(),10);
+            let b=parseInt(255*Math.random(),10);
+            cell.style["backgroundColor"]=`rgb(${r},${g},${b})`;
         });
     });
 }
