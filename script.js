@@ -6,6 +6,7 @@ container.style["alignItems"]="center";
 container.style["justifyContent"]="center";
 for(let i=0;i<16;i++){
     const row=document.createElement("div");
+    row.className="row";
     row.style.display="flex";
     for(let j=0;j<16;j++){
         const div=document.createElement("div");
@@ -16,3 +17,10 @@ for(let i=0;i<16;i++){
     }
     container.appendChild(row);
 }
+
+const cells=document.querySelectorAll("div:not(.container):not(.row)")
+cells.forEach((cell) => {
+    cell.addEventListener("mouseover", () => {
+        cell.style["backgroundColor"]="black";
+    });
+});
