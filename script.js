@@ -8,17 +8,20 @@ container.style["justifyContent"]="center";
 container.style.borderColor="black";
 container.style.borderStyle="solid";
 container.style.borderWidth="2px";
+
 const button=document.createElement("button");
 const body=document.querySelector("body");
 body.insertBefore(button,container);
 button.textContent="Change number of squares";
+
 body.style.display="flex";
 body.style.flexDirection="column";
 body.style.alignItems="center";
 body.style.justifyContent="space-between";
 body.style.height="80vh";
+
 createGrid(16);
-// startSkecth();
+
 function createGrid(number){
     number=parseInt(number,10);
     if(!Number.isInteger(number) || number<=0 || number>100){
@@ -41,10 +44,10 @@ function createGrid(number){
         }
         container.appendChild(row);
     }
-    startSkecth();
+    startSketch();
 }
 
-function startSkecth(){
+function startSketch(){
     const cells=document.querySelectorAll("div:not(.container):not(.row)")
     cells.forEach((cell) => {
         cell.addEventListener("mouseover", () => {
