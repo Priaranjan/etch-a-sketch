@@ -40,6 +40,7 @@ function createGrid(number){
             const div=document.createElement("div");
             div.style.height="100%";
             div.style.flex = `1 1 calc(100% / ${number})`;
+            div.style.opacity="0";
             row.appendChild(div);
         }
         container.appendChild(row);
@@ -51,6 +52,11 @@ function startSketch(){
     const cells=document.querySelectorAll("div:not(.container):not(.row)")
     cells.forEach((cell) => {
         cell.addEventListener("mouseover", () => {
+            //darkening effect
+            const computedStyle = window.getComputedStyle(cell);
+            let opacity = parseFloat(computedStyle.opacity);
+            opacity=Math.min(opacity+0.1,1);
+            cell.style.opacity=`${opacity}`;
             //cell.style["backgroundColor"]="black"; // standard;
 
             //random
